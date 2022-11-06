@@ -11,7 +11,7 @@ public class Bairro {
     @GeneratedValue(generator = "seqBairro",strategy = GenerationType.SEQUENCE)
     private Long idBairro;
 
-    @Column(name = "ID_CIDADE")
+    @Column(name = "ID_CIDADE" , length = 9)
     private Long idCidade;
 
     @Column(name = "NM_BAIRRO")

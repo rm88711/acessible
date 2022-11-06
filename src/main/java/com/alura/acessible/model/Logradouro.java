@@ -12,7 +12,7 @@ public class Logradouro {
     @GeneratedValue(generator = "seqlogra",strategy = GenerationType.SEQUENCE)
     private Long idLogradouro;
 
-    @Column(name = "ID_CIDADE")
+    @Column(name = "ID_CIDADE",length = 9)
     private Long idCidade;
 
     @Column(name = "DS_LOGRADOURO", length = 90)

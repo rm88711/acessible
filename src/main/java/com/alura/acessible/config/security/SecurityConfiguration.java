@@ -35,21 +35,21 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests()
                 //Tarefas
                 .antMatchers(HttpMethod.GET, "/api/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/**").authenticated()
+                .antMatchers(HttpMethod.POST, "/api/**").permitAll()
                 .antMatchers(HttpMethod.DELETE, "/api/**/**").permitAll()
                 .antMatchers(HttpMethod.PUT, "/api/**/**").permitAll()
 
-                //Usuários
-//                .antMatchers(HttpMethod.GET, "/api/user/**").permitAll()
-//                .antMatchers(HttpMethod.POST, "/api/user").permitAll()
-//                .antMatchers(HttpMethod.DELETE, "/api/user/**").authenticated()
-//                .antMatchers(HttpMethod.PUT, "/api/user/**").authenticated()
-//                .antMatchers(HttpMethod.POST, "/api/auth").permitAll()
-//
-//                // WEB
-//                .antMatchers(HttpMethod.GET, "/task").authenticated()
-//                .antMatchers(HttpMethod.GET, "/task/delete/**").hasRole("ADMIN")
-//                .antMatchers(HttpMethod.POST, "/task").hasRole("ADMIN")
+              //  Usuários
+                .antMatchers(HttpMethod.GET, "/api/user/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/user").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/api/user/**").authenticated()
+                .antMatchers(HttpMethod.PUT, "/api/user/**").authenticated()
+                .antMatchers(HttpMethod.POST, "/api/auth").permitAll()
+
+                // WEB
+                .antMatchers(HttpMethod.GET, "/task").authenticated()
+                .antMatchers(HttpMethod.GET, "/task/delete/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/task").hasRole("ADMIN")
 
 
                 //h2

@@ -13,7 +13,7 @@ public class Local {
     @GeneratedValue(generator = "seqLocal",strategy = GenerationType.SEQUENCE)
     private Long idLocal;
 
-    @Column(name = "ID_LOGRADOURO")
+    @Column(name = "ID_LOGRADOURO", length = 9)
     private Long idLogradouro;
 
     @Column(name = "NM_LOCAL", length = 90)
