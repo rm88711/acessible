@@ -50,4 +50,9 @@ public class Estado {
     public void setSiglaEstado(String siglaEstado) {
         this.siglaEstado = siglaEstado;
     }
+
+    @Override
+    public String toString() {
+        return "ALUNOS [idEstado = "+idEstado+" ,Nome = "+nomeEstado+" ,siglaEstado = "+siglaEstado+"   ]";
+    }
 }
