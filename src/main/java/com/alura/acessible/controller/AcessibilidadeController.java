@@ -1,7 +1,8 @@
 package com.alura.acessible.controller;
 
-import com.alura.acessible.model.Cidade;
-import com.alura.acessible.services.CidadeService;
+
+import com.alura.acessible.model.Acessibilidade;
+import com.alura.acessible.services.AcessibilidadeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,31 +15,31 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/cidade")
-public class CidadeController {
+@RequestMapping("/api/acessibilidade")
+public class AcessibilidadeController {
 
     @Autowired
-    private CidadeService service;
+    private AcessibilidadeService service;
 
     @GetMapping
-    public Page<Cidade> index(@PageableDefault(size=50) Pageable paginacao){
+    public Page<Acessibilidade> index(@PageableDefault(size=50) Pageable paginacao){
         return service.listAll(paginacao);
     }
 
     @PostMapping
-    public ResponseEntity<Cidade> create(@RequestBody @Valid Cidade classe){
+    public ResponseEntity<Acessibilidade> create(@RequestBody @Valid Acessibilidade classe){
         service.save(classe);
         return ResponseEntity.status(HttpStatus.CREATED).body(classe);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Cidade> show(@PathVariable Long id){
+    public ResponseEntity<Acessibilidade> show(@PathVariable Long id){
         return ResponseEntity.of(service.get(id));
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<Object> destroy(@PathVariable Long id){
-        Optional<Cidade> optional = service.get(id);
+        Optional<Acessibilidade> optional = service.get(id);
 
         if(optional.isEmpty())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -48,18 +49,18 @@ public class CidadeController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Cidade> update(@PathVariable Long id, @RequestBody @Valid Cidade newCidade){
+    public ResponseEntity<Acessibilidade> update(@PathVariable Long id, @RequestBody @Valid Acessibilidade newAcessibilidade){
         // carregar a tarefa do banco
-        Optional<Cidade> optional = service.get(id);
+        Optional<Acessibilidade> optional = service.get(id);
 
         // verificar se existe a tarefa com esse id
         if(optional.isEmpty())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
         // atualizar os dados
-        Cidade classe = optional.get();
-        BeanUtils.copyProperties(newCidade, classe);
-        classe.setIdCidade(id);
+        Acessibilidade classe = optional.get();
+        BeanUtils.copyProperties(newAcessibilidade, classe);
+        classe.setIdAcess(id);
 
         // salvar a tarefa
         service.save(classe);
@@ -69,3 +70,4 @@ public class CidadeController {
     }
 
 }
+

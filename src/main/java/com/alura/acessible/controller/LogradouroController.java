@@ -1,7 +1,8 @@
 package com.alura.acessible.controller;
 
-import com.alura.acessible.model.Cidade;
-import com.alura.acessible.services.CidadeService;
+
+import com.alura.acessible.model.Logradouro;
+import com.alura.acessible.services.LogradouroService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,31 +15,31 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/cidade")
-public class CidadeController {
+@RequestMapping("/api/logradouro")
+public class LogradouroController {
 
     @Autowired
-    private CidadeService service;
+    private LogradouroService service;
 
     @GetMapping
-    public Page<Cidade> index(@PageableDefault(size=50) Pageable paginacao){
+    public Page<Logradouro> index(@PageableDefault(size=50) Pageable paginacao){
         return service.listAll(paginacao);
     }
 
     @PostMapping
-    public ResponseEntity<Cidade> create(@RequestBody @Valid Cidade classe){
+    public ResponseEntity<Logradouro> create(@RequestBody @Valid Logradouro classe){
         service.save(classe);
         return ResponseEntity.status(HttpStatus.CREATED).body(classe);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Cidade> show(@PathVariable Long id){
+    public ResponseEntity<Logradouro> show(@PathVariable Long id){
         return ResponseEntity.of(service.get(id));
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<Object> destroy(@PathVariable Long id){
-        Optional<Cidade> optional = service.get(id);
+        Optional<Logradouro> optional = service.get(id);
 
         if(optional.isEmpty())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -48,18 +49,18 @@ public class CidadeController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Cidade> update(@PathVariable Long id, @RequestBody @Valid Cidade newCidade){
+    public ResponseEntity<Logradouro> update(@PathVariable Long id, @RequestBody @Valid Logradouro newLogradouro){
         // carregar a tarefa do banco
-        Optional<Cidade> optional = service.get(id);
+        Optional<Logradouro> optional = service.get(id);
 
         // verificar se existe a tarefa com esse id
         if(optional.isEmpty())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
         // atualizar os dados
-        Cidade classe = optional.get();
-        BeanUtils.copyProperties(newCidade, classe);
-        classe.setIdCidade(id);
+        Logradouro classe = optional.get();
+        BeanUtils.copyProperties(newLogradouro, classe);
+        classe.setIdLogradouro(id);
 
         // salvar a tarefa
         service.save(classe);

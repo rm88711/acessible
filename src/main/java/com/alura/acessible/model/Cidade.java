@@ -3,7 +3,7 @@ package com.alura.acessible.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "T_DECIDE")
+@Table(name = "T_CIDADE")
 @SequenceGenerator(name = "seqCidade", sequenceName = "SQ_CIDADE" , allocationSize = 1)
 public class Cidade {
     @Id

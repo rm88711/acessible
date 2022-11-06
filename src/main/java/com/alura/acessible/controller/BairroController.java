@@ -1,7 +1,7 @@
 package com.alura.acessible.controller;
 
-import com.alura.acessible.model.Cidade;
-import com.alura.acessible.services.CidadeService;
+import com.alura.acessible.model.Bairro;
+import com.alura.acessible.services.BairroService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,31 +14,31 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/cidade")
-public class CidadeController {
+@RequestMapping("/api/bairro")
+public class BairroController {
 
     @Autowired
-    private CidadeService service;
+    private BairroService service;
 
     @GetMapping
-    public Page<Cidade> index(@PageableDefault(size=50) Pageable paginacao){
+    public Page<Bairro> index(@PageableDefault(size=50) Pageable paginacao){
         return service.listAll(paginacao);
     }
 
     @PostMapping
-    public ResponseEntity<Cidade> create(@RequestBody @Valid Cidade classe){
+    public ResponseEntity<Bairro> create(@RequestBody @Valid Bairro classe){
         service.save(classe);
         return ResponseEntity.status(HttpStatus.CREATED).body(classe);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Cidade> show(@PathVariable Long id){
+    public ResponseEntity<Bairro> show(@PathVariable Long id){
         return ResponseEntity.of(service.get(id));
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<Object> destroy(@PathVariable Long id){
-        Optional<Cidade> optional = service.get(id);
+        Optional<Bairro> optional = service.get(id);
 
         if(optional.isEmpty())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -48,18 +48,18 @@ public class CidadeController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Cidade> update(@PathVariable Long id, @RequestBody @Valid Cidade newCidade){
+    public ResponseEntity<Bairro> update(@PathVariable Long id, @RequestBody @Valid Bairro newBairro){
         // carregar a tarefa do banco
-        Optional<Cidade> optional = service.get(id);
+        Optional<Bairro> optional = service.get(id);
 
         // verificar se existe a tarefa com esse id
         if(optional.isEmpty())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
         // atualizar os dados
-        Cidade classe = optional.get();
-        BeanUtils.copyProperties(newCidade, classe);
-        classe.setIdCidade(id);
+        Bairro classe = optional.get();
+        BeanUtils.copyProperties(newBairro, classe);
+        classe.setIdBairro(id);
 
         // salvar a tarefa
         service.save(classe);
