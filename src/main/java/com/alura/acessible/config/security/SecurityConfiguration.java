@@ -34,7 +34,7 @@ public class SecurityConfiguration {
                 .and()
                 .authorizeHttpRequests()
                 //Tarefas
-                .antMatchers(HttpMethod.GET, "/api/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/estado").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/**").permitAll()
                 .antMatchers(HttpMethod.DELETE, "/api/**/**").permitAll()
                 .antMatchers(HttpMethod.PUT, "/api/**/**").permitAll()

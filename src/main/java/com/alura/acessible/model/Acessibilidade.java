@@ -1,6 +1,7 @@
 package com.alura.acessible.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "T_ACESSIBILIDADE")
