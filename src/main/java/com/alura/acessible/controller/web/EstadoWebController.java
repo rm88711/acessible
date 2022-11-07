@@ -1,6 +1,7 @@
 package com.alura.acessible.controller.web;
 
 
+import com.alura.acessible.model.Estado;
 import com.alura.acessible.services.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,5 +20,10 @@ public class EstadoWebController {
         ModelAndView mv =  new ModelAndView("/estado/index");
         mv.addObject("estado",services.listAll());
         return mv;
+    }
+
+    @GetMapping("new")
+    public String form(Estado estado){
+        return "estado/form";
     }
 }
