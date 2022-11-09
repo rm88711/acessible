@@ -22,24 +22,19 @@ body {
 }
 
 h1 {
-    color: red;
-    padding: 6em;
+    color: #FD9D24;
+    padding: 1em;
+    font-size:x-large;
+    }
 
-}
 
-input{
-    width: 25em;
-    height: 3em;
-}
 
 .icones {
     font-size: 30px;
 }
 
 .fomrs {
-    display: flex;
-    padding-top: 15em;
-    justify-content: center;
+   margin-top: 10em;
 }
 
 .flexbox {
@@ -48,6 +43,7 @@ input{
     flex-wrap: wrap;
     max-width: 1200px;
 }
+
 
 .flexmenu {
     display: flex;
@@ -60,6 +56,35 @@ input{
 .block {
     flex-direction: column;
     align-items: center;
+}
+
+.listBlock {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 250px;
+    box-shadow: rgba(0, 0, 0, 0.5) 20px 20px 40px;
+    margin: 2rem;
+    transition: all 0.2s ease-in-out 0s;
+    padding: 15px;
+}
+
+.linhacadastro {
+    display: flex;
+    flex-direction: row;
+}
+
+.letras{
+    font-size:2em;
+}
+
+.borda{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #FD9D24;
+    border-image: initial;
+    border-radius: 10px;
 }
 
 .cor {

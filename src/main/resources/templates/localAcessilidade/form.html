@@ -26,35 +26,56 @@
         <div>
             <form action="/localacessilidade" method="POST" th:object="${localAcessilidade}">
                 <input class="hide" th:field="*{idLocal}" id="idLocal">
-                <div class="espacinho">
-                    <label for="estado" id="labelEstado" th:field="*{estado}"  >Estado:</label>
-                    <div>
-                        <input type="text" id="estado">
+                <div class="listBlock borda letras">
+                    <div class="linhacadastro">
+                        <label for="local" th:field="*{local}">
+                            <h2>Local:</h2>
+                        </label>
+                        <input type="text" id="local">
                     </div>
-                </div>
-                <div class="espacinho">
-                    <label for="cidade">Cidade:</label>
-                    <div>
-                        <input type="text" id="cidade" th:field="*{cidade}" >
+
+                    <div class="linhacadastro">
+                        <label for="estado" th:field="*{estado}">
+                            <h2>Estado:</h2>
+                        </label>
+                        <div><input type="text" id="estado"></div>
                     </div>
-                </div>
-                <div class="espacinho">
-                    <label for="bairro">Bairro:</label>
-                    <div>
-                        <input type="text" id="bairro" th:field="*{bairro}">
+
+                    <div class="linhacadastro">
+                        <label for="cidade" th:field="*{cidade}">
+                            <h2>Cidade:</h2>
+                        </label>
+                        <div><input type="text" id="cidade"></div>
                     </div>
-                </div>
-                <div class="espacinho">
-                    <label for="endereco">Endereço:</label>
-                    <div><input type="text" id="endereco" th:field="*{logradouro}"></div>
+
+                    <div class="linhacadastro">
+                        <label for="bairro" th:field="*{bairro}">
+                            <h2>Bairro:</h2>
+                        </label>
+                        <div><input type="text" id="bairro"></div>
                     </div>
-                <div class="espacinho">
-                    <label for="cep">Cep:</label>
-                    <div><input type="text" id="cep" th:field="*{cep}"></div>
-                </div>
-                <div class="espacinho">
-                    <label for="local">Local:</label>
-                    <div><input type="text" id="local" th:field="*{local}"></div>
+
+                    <div class="linhacadastro">
+                        <label for="logradouro" th:field="*{logradouro}">
+                            <h2>Endereço:</h2>
+                        </label>
+                        <div><input type="text" id="logradouro"></div>
+                    </div>
+
+                    <div class="linhacadastro">
+                        <label for="cep" th:field="*{cep}">
+                            <h2>Cep:</h2>
+                        </label>
+                        <div><input type="text" id="cep"></div>
+                    </div>
+
+                    <div class="linhacadastro">
+                        <label for="tipo" th:field="*{tipo}">
+                            <h2>Tipo:</h2>
+                        </label>
+                        <div><input type="text" id="tipo"></div>
+                    </div>
+
                 </div>
                 <div class="buttons">
                     <a href="/localacessilidade">
