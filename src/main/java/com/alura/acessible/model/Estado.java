@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "T_ESTADO")
 @SequenceGenerator(name = "seqEstado", sequenceName = "SQ_ESTADO" , allocationSize = 1)
-public class Estado {
+public class  Estado {
 
     @Id
     @Column(name = "ID_ESTADO", length = 9)

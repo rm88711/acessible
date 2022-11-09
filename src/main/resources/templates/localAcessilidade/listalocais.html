@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{~/css/global.css}">
+    <style type="text/css"></style>
+
+    <title>Locais Acessibilidade</title>
+</head>
+<body>
+    <nav class="letramenu flexmenu" id="menu-h">
+        <ul>
+
+            <li>
+                <a href="/localacessilidade">Home</a>
+            </li>
+
+            <li><a href="/localacessilidade/new">Cadastro</a></li>
+
+        </ul>
+    </nav>
+    <div th:each="localacessilidade : ${localacessilidade}">
+        
+        <h2 th:text="${localacessilidade.local}"></h2>
+        <h2 th:text="*{localacessilidade.tipo}"></h2>
+    </div>
+</body>
+
+</html>

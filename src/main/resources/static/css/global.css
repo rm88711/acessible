@@ -2,59 +2,127 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone");
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     outline: none;
 }
 
-body{
+body {
     background-image: url('../backg.png');
     font-family: 'Poppins', sans-serif;
     color: var(--text-color);
-    font-size: 10px;
+    font-size: 5px;
 }
 
 .espacinho {
-            padding: 0.5em;
-        }
+    padding: 0.3em;
+    font-size: 25px;
+}
 
 h1 {
-            color: red;
-            padding: 6em;
-            
-        }
+    color: red;
+    padding: 6em;
 
-.icones{
+}
+
+input{
+    width: 25em;
+    height: 3em;
+}
+
+.icones {
     font-size: 30px;
 }
 
-.fomrs{
-	display:flex;
+.fomrs {
+    display: flex;
     padding-top: 15em;
-    padding-left: 35em;
-
+    justify-content: center;
 }
-.flexbox{
+
+.flexbox {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    max-width: 700px;
+    max-width: 1200px;
 }
 
-.block{
+.flexmenu {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.block {
     flex-direction: column;
-    align-items:center;
+    align-items: center;
 }
 
-.cor{
+.cor {
     color: #FD9D24
 }
-.icones{
+
+.icones {
     padding: 2em;
 }
 
-.letrinhas{
+.letrinhas {
     font-size: 20px;
+}
+.letramenu {
+    font-size: 20px;
+}
+
+#menu-h {
+    background-color: #FD9D24;
+}
+
+#menu-h ul {
+    max-width: 1200px;
+    list-style: none;
+    padding: 0;
+}
+
+#menu-h ul li {
+    display: inline;
+}
+
+#menu-h ul li a {
+    color: #FFF;
+    padding: 20px;
+    display: inline-block;
+    text-decoration: none;
+    transition: background .4s;
+}
+
+#menu-h ul li a:hover {
+    background-color: rgb(24, 139, 233);
+}
+
+/*
+#menu-h ul li:last-child a {
+    float: right;
+    background-color: rgb(24, 139, 233);
+}*/
+
+.hide {
+    display: none;
+}
+
+.texto {
+    background-image:
+        linear-gradient(transparent 0%, transparent 90%, rgb(246, 246, 133) 90%, rgb(24, 139, 233) 100%);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-position-x: right;
+    transition: background-size 300ms;
+}
+
+.texto:hover {
+    background-size: 100% 100%;
+    background-position-x: left;
 }

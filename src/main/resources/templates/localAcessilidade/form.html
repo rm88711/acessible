@@ -11,12 +11,23 @@
 </head>
 
 <body>
+    <nav class="letramenu flexmenu" id="menu-h">
+        <ul>
+
+            <li>
+                <a href="/localacessilidade">Home</a>
+            </li>
+
+            <li><a href="/localacessilidade/new">Cadastro</a></li>
+
+        </ul>
+    </nav>
     <div class="fomrs">
-        <h1>Cadastro</h1>
         <div>
-            <form>
+            <form action="/localacessilidade" method="POST" th:object="${localAcessilidade}">
+                <input class="hide" th:field="*{idLocal}" id="idLocal">
                 <div class="espacinho">
-                    <label for="estado" id="labelEstado">Estado:</label>
+                    <label for="estado" id="labelEstado" th:field="*{estado}"  >Estado:</label>
                     <div>
                         <input type="text" id="estado">
                     </div>
@@ -24,30 +35,31 @@
                 <div class="espacinho">
                     <label for="cidade">Cidade:</label>
                     <div>
-                        <input type="text" id="cidade">
+                        <input type="text" id="cidade" th:field="*{cidade}" >
                     </div>
                 </div>
                 <div class="espacinho">
                     <label for="bairro">Bairro:</label>
                     <div>
-                        <input type="text" id="bairro">
+                        <input type="text" id="bairro" th:field="*{bairro}">
                     </div>
                 </div>
                 <div class="espacinho">
                     <label for="endereco">Endereço:</label>
-                    <div><input type="text" id="endereco"></div>
+                    <div><input type="text" id="endereco" th:field="*{logradouro}"></div>
                     </div>
                 <div class="espacinho">
                     <label for="cep">Cep:</label>
-                    <div><input type="text" id="cep"></div>
+                    <div><input type="text" id="cep" th:field="*{cep}"></div>
                 </div>
                 <div class="espacinho">
                     <label for="local">Local:</label>
-                    <div><input type="text" id="local"></div>
+                    <div><input type="text" id="local" th:field="*{local}"></div>
                 </div>
-                <div>
-                    <a href="">
+                <div class="buttons">
+                    <a href="/localacessilidade">
                         <span class="material-icons">edit</span>
+                        <input type="submit" value="salvar" class="button">
                     </a>
                 </div>
             </form>
