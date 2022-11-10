@@ -56,7 +56,7 @@ public class LocalAcessilidadeWebController {
     @GetMapping("listalocais/{tipo}")
     public ModelAndView listaLocal(@PathVariable String tipo){
         System.out.println("LOLOLOLOLO "+ tipo);
-        ModelAndView mv =  new ModelAndView("/localacessilidade/listalocais");
+        ModelAndView mv =  new ModelAndView("localacessilidade/listalocais");
 
 
         mv.addObject("localacessilidade",services.listTips(tipo));
