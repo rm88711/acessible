@@ -67,16 +67,16 @@ public class SecurityConfiguration {
         return http.build();
     }
 
-     @Bean
-     public UserDetailsService users(){
-         UserDetails user = User.builder()
-             .username("admin")
-             .password("2299001938928733929")
-             .roles("USER")
-             .build();
-
-         return new InMemoryUserDetailsManager(user);
-     }
+//     @Bean
+//     public UserDetailsService users(){
+//         UserDetails user = User.builder()
+//             .username("admin")
+//             .password("2299001938928733929")
+//             .roles("USER")
+//             .build();
+//
+//         return new InMemoryUserDetailsManager(user);
+//     }
 
     @Bean
     public PasswordEncoder passwordEncoder(){

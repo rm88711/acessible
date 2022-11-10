@@ -1,7 +1,6 @@
 package com.alura.acessible.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "T_LOCAIS")
@@ -33,10 +32,12 @@ public class LocalAcessilidade {
     @Column(name = "NM_ESTADO", length = 30)
     private  String estado;
 
+    @Column(name = "TP_TIPO", length = 30)
+    private String tipo;
     public LocalAcessilidade() {
     }
 
-    public LocalAcessilidade(String local, String logradouro, String cep, String bairro, String cidade, String sigla, String estado) {
+    public LocalAcessilidade(String local, String logradouro, String cep, String bairro, String cidade, String sigla, String estado, String tipo) {
         this.local = local;
         this.logradouro = logradouro;
         this.cep = cep;
@@ -44,6 +45,19 @@ public class LocalAcessilidade {
         this.cidade = cidade;
         this.sigla = sigla;
         this.estado = estado;
+        this.tipo = tipo;
+    }
+
+    public LocalAcessilidade(Long idLocal, String local, String logradouro, String cep, String bairro, String cidade, String sigla, String estado, String tipo) {
+        this.idLocal = idLocal;
+        this.local = local;
+        this.logradouro = logradouro;
+        this.cep = cep;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.sigla = sigla;
+        this.estado = estado;
+        this.tipo = tipo;
     }
 
     public Long getIdLocal() {
@@ -108,5 +122,18 @@ public class LocalAcessilidade {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Locais [idLocal = "+idLocal+", local"+local+" ,Logradouro = "+logradouro+" ,Cep = "+cep+" ,Bairro "+bairro+" , Cidade "+cidade+" , sigla "+sigla+" , estado "+estado+" , tipo "+tipo+" ]";
     }
 }
