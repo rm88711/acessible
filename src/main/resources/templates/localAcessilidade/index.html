@@ -21,107 +21,105 @@
             <li><a href="/localacessilidade/new">Cadastro</a></li>
         </ul>
     </nav>
+    <div th:if="${message != null}" class="toast">
+        <span class="toast-message" th:text="${message}"></span>
+    </div>
     <div class="fomrs">
-        <div>
-            <form>
-                <div class="flexbox">
-                    <div class="icones">
-                        <a th:href="${'/localacessilidade/listalocais/' + 'cinema'}">
-                            <div class="flexbox block texto">
-                                <div><span style="font-size:150px; color:#e69e19"
-                                        class="material-icons">movie_filter</span>
-                                </div>
-                                <div class="letrinhas">
-                                    <p>Cinema</p>
-                                </div>
+        <form>
+            <div class="flexbox">
+                <div class="icones">
+                    <a th:href="${'/localacessilidade/listalocais/' + 'cinema'}">
+                        <div class="flexbox block texto">
+                            <div><span style="font-size:150px; color:#e69e19" class="material-icons">movie_filter</span>
                             </div>
-                        </a>
-                    </div>
-                    <div class="icones">
-                        <a th:href="${'/localacessilidade/listalocais/' + 'teatro'}">
-                            <div class="flexbox block texto">
-                                <div><span style="font-size:150px; color:#e69e19"
-                                        class="material-icons">theater_comedy</span>
-                                </div>
-                                <div class="letrinhas">
-                                    <p>Teatros</p>
-                                </div>
+                            <div class="letrinhas">
+                                <p>Cinema</p>
                             </div>
-                        </a>
-                    </div>
-                    <div class="icones">
-                        <a th:href="${'/localacessilidade/listalocais/' + 'museu'}">
-                            <div class="flexbox block texto">
-                                <div><span style="font-size:150px; color:#e69e19" class="material-icons">museum</span>
-                                </div>
-                                <div class="letrinhas">
-                                    <p>Museus</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="icones">
-                        <a th:href="${'/localacessilidade/listalocais/' + 'parque'}">
-                            <div class="flexbox block texto">
-                                <div><span style="font-size:150px; color:#e69e19" class="material-icons">park</span>
-                                </div>
-                                <div class="letrinhas">
-                                    <p>Parques</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="icones">
-                        <a th:href="${'/localacessilidade/listalocais/' + 'shopping'}">
-                            <div class="flexbox block texto">
-                                <div><span style="font-size:150px; color:#e69e19"
-                                        class="material-icons">shopping_bag</span>
-                                </div>
-                                <div class="letrinhas">
-                                    <p>Shoppings</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="icones">
-                        <a th:href="${'/localacessilidade/listalocais/' + 'mercado'}">
-                            <div class="flexbox block texto">
-                                <div><span style="font-size:150px; color:#e69e19"
-                                        class="material-icons">shopping_cart</span>
-                                </div>
-                                <div class="letrinhas">
-                                    <p>Mercados</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="icones">
-                        <a th:href="${'/localacessilidade/listalocais/' + 'restaurante'}">
-                            <div class="flexbox block texto">
-                                <div><span style="font-size:150px; color:#e69e19"
-                                        class="material-icons">restaurant</span>
-                                </div>
-                                <div class="letrinhas">
-                                    <p>Restaurantes</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="icones">
-                        <a th:href="${'/localacessilidade/listalocais/' + 'balada'}">
-                            <div class="flexbox block texto">
-                                <div><span style="font-size:150px; color:#e69e19"
-                                        class="material-icons">local_bar</span>
-                                </div>
-                                <div class="letrinhas">
-                                    <p>Baladas</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
-            </form>
-        </div>
+                <div class="icones">
+                    <a th:href="${'/localacessilidade/listalocais/' + 'teatro'}">
+                        <div class="flexbox block texto">
+                            <div><span style="font-size:150px; color:#e69e19"
+                                    class="material-icons">theater_comedy</span>
+                            </div>
+                            <div class="letrinhas">
+                                <p>Teatros</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="icones">
+                    <a th:href="${'/localacessilidade/listalocais/' + 'museu'}">
+                        <div class="flexbox block texto">
+                            <div><span style="font-size:150px; color:#e69e19" class="material-icons">museum</span>
+                            </div>
+                            <div class="letrinhas">
+                                <p>Museus</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="icones">
+                    <a th:href="${'/localacessilidade/listalocais/' + 'parque'}">
+                        <div class="flexbox block texto">
+                            <div><span style="font-size:150px; color:#e69e19" class="material-icons">park</span>
+                            </div>
+                            <div class="letrinhas">
+                                <p>Parques</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="icones">
+                    <a th:href="${'/localacessilidade/listalocais/' + 'shopping'}">
+                        <div class="flexbox block texto">
+                            <div><span style="font-size:150px; color:#e69e19" class="material-icons">shopping_bag</span>
+                            </div>
+                            <div class="letrinhas">
+                                <p>Shoppings</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="icones">
+                    <a th:href="${'/localacessilidade/listalocais/' + 'mercado'}">
+                        <div class="flexbox block texto">
+                            <div><span style="font-size:150px; color:#e69e19"
+                                    class="material-icons">shopping_cart</span>
+                            </div>
+                            <div class="letrinhas">
+                                <p>Mercados</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="icones">
+                    <a th:href="${'/localacessilidade/listalocais/' + 'restaurante'}">
+                        <div class="flexbox block texto">
+                            <div><span style="font-size:150px; color:#e69e19" class="material-icons">restaurant</span>
+                            </div>
+                            <div class="letrinhas">
+                                <p>Restaurantes</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="icones">
+                    <a th:href="${'/localacessilidade/listalocais/' + 'balada'}">
+                        <div class="flexbox block texto">
+                            <div><span style="font-size:150px; color:#e69e19" class="material-icons">local_bar</span>
+                            </div>
+                            <div class="letrinhas">
+                                <p>Baladas</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </form>
+
     </div>
 </body>
 

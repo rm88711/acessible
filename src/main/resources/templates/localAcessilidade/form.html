@@ -22,69 +22,96 @@
 
         </ul>
     </nav>
-    <div class="fomrs">
-        <div>
-            <form action="/localacessilidade" method="POST" th:object="${localAcessilidade}">
-                <input class="hide" th:field="*{idLocal}" id="idLocal">
-                <div class="listBlock borda letras">
-                    <div class="linhacadastro">
-                        <label for="local" th:field="*{local}">
-                            <h2>Local:</h2>
-                        </label>
-                        <input type="text" id="local">
-                    </div>
+    <div class="fomrs2">
+        <form action="/localacessilidade" method="POST" th:object="${localAcessilidade}">
+            <input class="hide" th:field="*{idLocal}" id="idLocal">
+            <div class="listBlock borda letras">
 
-                    <div class="linhacadastro">
-                        <label for="estado" th:field="*{estado}">
-                            <h2>Estado:</h2>
-                        </label>
-                        <div><input type="text" id="estado"></div>
-                    </div>
-
-                    <div class="linhacadastro">
-                        <label for="cidade" th:field="*{cidade}">
-                            <h2>Cidade:</h2>
-                        </label>
-                        <div><input type="text" id="cidade"></div>
-                    </div>
-
-                    <div class="linhacadastro">
-                        <label for="bairro" th:field="*{bairro}">
-                            <h2>Bairro:</h2>
-                        </label>
-                        <div><input type="text" id="bairro"></div>
-                    </div>
-
-                    <div class="linhacadastro">
-                        <label for="logradouro" th:field="*{logradouro}">
-                            <h2>Endereço:</h2>
-                        </label>
-                        <div><input type="text" id="logradouro"></div>
-                    </div>
-
-                    <div class="linhacadastro">
-                        <label for="cep" th:field="*{cep}">
-                            <h2>Cep:</h2>
-                        </label>
-                        <div><input type="text" id="cep"></div>
-                    </div>
-
-                    <div class="linhacadastro">
-                        <label for="tipo" th:field="*{tipo}">
-                            <h2>Tipo:</h2>
-                        </label>
-                        <div><input type="text" id="tipo"></div>
-                    </div>
-
+                <div class="espacinho linhacadastro">
+                    <label for="local">Local:</label>
+                    <div><input type="text" id="local" th:field="*{local}"></div>
+                    <span class="novoSpanExemplo">Nome do Local ex: Shopping Vila Lobos</span>
                 </div>
-                <div class="buttons">
+
+                <div class="espacinho linhacadastro">
+                    <label for="cidade">Cidade:</label>
+                    <div>
+                        <input type="text" id="cidade" th:field="*{cidade}">
+                    </div>
+                </div>
+
+                <div class="espacinho linhacadastro">
+                    <label for="bairro">Bairro:</label>
+                    <div>
+                        <input type="text" id="bairro" th:field="*{bairro}">
+                    </div>
+                </div>
+
+                <div class="espacinho linhacadastro">
+                    <label for="endereco">Endereço:</label>
+                    <div><input type="text" id="endereco" th:field="*{logradouro}"></div>
+                </div>
+
+                <div class="espacinho linhacadastro">
+                    <label for="cep">Cep:</label>
+                    <div><input type="text" id="cep" th:field="*{cep}"></div>
+                </div>
+
+                <div class="espacinho linhacadastro">
+                    <label for="estado" id="labelEstado" th:field="*{estado}">Estado:</label>
+                    <select id="estado" name="estado">
+                        <option value="ACRE">ACRE</option>
+                        <option value="ALAGOAS">ALAGOAS</option>
+                        <option value="AMAPÁ">AMAPÁ</option>
+                        <option value="AMAZONAS">AMAZONAS</option>
+                        <option value="BAHIA">BAHIA</option>
+                        <option value="CEARÁ">CEARÁ</option>
+                        <option value="DISTRITO FEDERAL">DISTRITO FEDERAL</option>
+                        <option value="ESPÍRITO SANTO">ESPÍRITO SANTO</option>
+                        <option value="GOIÁS">GOIÁS</option>
+                        <option value="MARANHÃO">MARANHÃO</option>
+                        <option value="MATO GROSSO">MATO GROSSO</option>
+                        <option value="MATO GROSSO DO SUL">MATO GROSSO DO SUL</option>
+                        <option value="MINAS GERAIS">MINAS GERAIS</option>
+                        <option value="PARÁ">PARÁ</option>
+                        <option value="PARAÍBA">PARAÍBA</option>
+                        <option value="PARANÁ">PARANÁ</option>
+                        <option value="PERNAMBUCO">PERNAMBUCO</option>
+                        <option value="PIAUÍ">PIAUÍ</option>
+                        <option value="RIO DE JANEIRO">RIO DE JANEIRO</option>
+                        <option value="RIO GRANDE DO NORTE">RIO GRANDE DO NORTE</option>
+                        <option value="RIO GRANDE DO SUL">RIO GRANDE DO SUL</option>
+                        <option value="RONDÔNIA">RONDÔNIA</option>
+                        <option value="RORAIMA">RORAIMA</option>
+                        <option value="SANTA CATARINA">SANTA CATARINA</option>
+                        <option value="SÃO PAULO">SÃO PAULO</option>
+                        <option value="SERGIPE">SERGIPE</option>
+                        <option value="TOCANTINS">TOCANTINS</option>
+                    </select>
+                </div>
+
+                <div class="espacinho linhacadastro">
+                    <label for="tipo">Tipo:</label>
+                    <select id="tipo" name="tipo">
+                        <option value="teatro">Teatro</option>
+                        <option value="cinema">Cinema</option>
+                        <option value="museu" selected>Museu</option>
+                        <option value="parque">Parque</option>
+                        <option value="shopping" selected>Shopping</option>
+                        <option value="mercado">Mercado</option>
+                        <option value="restaurante">Restaurante</option>
+                        <option value="balada">Balada</option>
+                    </select>
+                </div>
+
+                <div class="buttons buttons linhacadastro">
                     <a href="/localacessilidade">
-                        <span class="material-icons">edit</span>
                         <input type="submit" value="salvar" class="button">
                     </a>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
+    </div>
     </div>
 </body>
 

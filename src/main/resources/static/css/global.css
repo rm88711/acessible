@@ -17,8 +17,8 @@ body {
 }
 
 .espacinho {
-    padding: 0.3em;
-    font-size: 25px;
+  
+    font-size: 20px;
 }
 
 h1 {
@@ -34,14 +34,31 @@ h1 {
 }
 
 .fomrs {
+   display: flex;
    margin-top: 10em;
+   align-items: center;
+   justify-content: center;
 }
+
+.fomrs2 {
+    margin-top: 10em;
+    align-items: center;
+    justify-content: center;
+ }
+
+.novoSpanExemplo{
+    margin-left: 1em;
+    font-size: small;
+    align-items: center;
+}
+
 
 .flexbox {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     max-width: 1200px;
+    justify-content: center;
 }
 
 
@@ -133,6 +150,18 @@ h1 {
     float: right;
     background-color: rgb(24, 139, 233);
 }*/
+.alert {
+    max-width: 350px;
+    padding: .5rem 2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.alert.success{
+    background-color: #2ecc71;
+    color: var(--bg);
+
+}
 
 .hide {
     display: none;
@@ -150,4 +179,27 @@ h1 {
 .texto:hover {
     background-size: 100% 100%;
     background-position-x: left;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.buttons .button {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.button {
+    background: var(--primary);
+    box-shadow: 0px 0px 6px var(--primary);
+    border-radius: 5px;
+    color: #3b270e;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    border: solid;
+    cursor: pointer;
+    font-weight: bold;
 }

@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 @RequestMapping("/localacessilidade")
 public class LocalAcessilidadeWebController {
@@ -24,11 +21,8 @@ public class LocalAcessilidadeWebController {
     LocalAcessilidadeService services;
 
     @GetMapping
-    public ModelAndView index(){
-        ModelAndView mv =  new ModelAndView("/localacessilidade/index");
-        mv.addObject("localacessilidade",services.listAll());
-      //  mv.addObject("localacessilidade",services.listTipos("teatros"));
-        return mv;
+    public String index(){
+        return "/localacessilidade/index";
     }
 
     @GetMapping("new")
@@ -62,26 +56,9 @@ public class LocalAcessilidadeWebController {
         System.out.println("LOLOLOLOLO "+ tipo);
         ModelAndView mv =  new ModelAndView("/localacessilidade/listalocais");
 
-//        List<LocalAcessilidade> localAcessilidade;
-//        localAcessilidade = new ArrayList<LocalAcessilidade>(services.listAll());
-//        LocalAcessilidade[] locais = new LocalAcessilidade[localAcessilidade.size()];
-//        int y = 0;
-//        for (LocalAcessilidade x : localAcessilidade) {
-//            if (x.getTipo() == "teatro"){
-//                locais[y] = new LocalAcessilidade(x.getIdLocal(),x.getLocal(),x.getLogradouro(), x.getCep(), x.getBairro(), x.getCidade(), x.getSigla(), x.getEstado(), x.getTipo());
-//                y = y +1;
-//            }
-//        }
-//        mv.addObject("localacessilidade",locais);
-
-
 
         mv.addObject("localacessilidade",services.listTips(tipo));
 
         return mv;
-        //System.out.println("BOLVOALLALALLALALALALLALALA");
-       // var localAcessilidade = services.listAll();
-       // System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "+localAcessilidade.get());
-       // return new ModelAndView("/localacessilidade/listalocais").addObject("localacessilidade", localAcessilidade.get());
     }
 }
