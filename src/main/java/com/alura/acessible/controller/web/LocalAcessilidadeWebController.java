@@ -1,7 +1,6 @@
 package com.alura.acessible.controller.web;
 
 
-
 import com.alura.acessible.model.LocalAcessilidade;
 import com.alura.acessible.services.LocalAcessilidadeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +19,14 @@ public class LocalAcessilidadeWebController {
     @Autowired
     LocalAcessilidadeService services;
 
-    @GetMapping
+    @GetMapping()
     public String index(){
-        return "/localacessilidade/index";
+        return "localacessilidade/index";
     }
-
+//    @RequestMapping()
+//    public String home() {
+//        return "Hello Docker World";
+//    }
     @GetMapping("new")
     public String form(LocalAcessilidade localAcessilidade){
         return "localacessilidade/form";

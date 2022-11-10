@@ -1,8 +1,5 @@
 package com.alura.acessible.config.security;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -18,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-
 @Configuration
 @Profile("prd")
 public class SecurityConfiguration {
@@ -31,56 +27,56 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.httpBasic()
-                .and()
-                .authorizeHttpRequests()
+            .and() 
+            .authorizeHttpRequests()
                 //Tarefas
-                .antMatchers(HttpMethod.GET, "/api/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/**/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/**").permitAll()
                 .antMatchers(HttpMethod.DELETE, "/api/**/**").permitAll()
                 .antMatchers(HttpMethod.PUT, "/api/**/**").permitAll()
-
-              //  Usuários
+                
+                //Usuários
                 .antMatchers(HttpMethod.GET, "/api/user/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/user").permitAll()
-                .antMatchers(HttpMethod.DELETE, "/api/user/**").authenticated()
-                .antMatchers(HttpMethod.PUT, "/api/user/**").authenticated()
+                .antMatchers(HttpMethod.DELETE, "/api/user/**").permitAll()
+                .antMatchers(HttpMethod.PUT, "/api/user/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/auth").permitAll()
 
                 // WEB
-                .antMatchers(HttpMethod.GET, "/task").authenticated()
-                .antMatchers(HttpMethod.GET, "/task/delete/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.POST, "/task").hasRole("ADMIN")
-
-
+                .antMatchers(HttpMethod.GET, "/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/**/delete/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/**").permitAll()
+               
+                
                 //h2
-                //.antMatchers("/h2-console/**").permitAll()
+                .antMatchers("/h2-console/**").permitAll()
 
                 .anyRequest().permitAll()
-                .and()
+            .and()
                 .csrf().disable()
                 .headers().frameOptions().disable()
-                .and()
+            .and()
                 .formLogin()
-        //.loginPage("/meulogin")
-        //.addFilterBefore(new AuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
-        ;
+                //.loginPage("/meulogin")
+                //.addFilterBefore(new AuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
+            ;
         return http.build();
     }
 
-//     @Bean
-//     public UserDetailsService users(){
-//         UserDetails user = User.builder()
-//             .username("admin")
-//             .password("2299001938928733929")
-//             .roles("USER")
-//             .build();
-//
-//         return new InMemoryUserDetailsManager(user);
-//     }
+     @Bean
+     public UserDetailsService users(){
+         UserDetails user = User.builder()
+             .username("joao@fiap.com.br")
+             .password("$2a$12$fJRy5k93hXvZbgFvXS0eN.FjZ5ykqjYHIhuNDTr62C/Pj10y6eorG")
+             .roles("USER")
+             .build();
+
+         return new InMemoryUserDetailsManager(user);
+     }
 
     @Bean
     public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
+       return new BCryptPasswordEncoder();
     }
-
+    
 }
