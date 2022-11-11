@@ -5,7 +5,7 @@
  - Kleber Albert de Sousa Monteiro - RM: 88711
  - Renato Miranda Esmail - RM: 86701
 
-## Propósta :
+## Proposta :
 
 Registrar Locais com acessibilidade e o tipo de acessibilidade e apresentar os locais.
 
