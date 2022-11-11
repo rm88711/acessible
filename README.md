@@ -17,3 +17,42 @@ Registrar Locais com acessibilidade e o tipo de acessibilidade e apresentar os l
 https://youtu.be/wJFeZ2h4bjs
 
 ```
+
+## EMPACOTAR
+
+```
+
+./mvnw package
+
+```
+
+## CRIAR IMAGEM NO DOCKER: precisar esta logado no docker
+
+```
+
+docker build -t acessible -f Dockerfile .
+
+```
+
+## Executar o docker :
+
+```
+
+docker container run -it -d -p 8080:8080 --name acessible-01 acessible
+
+```
+Caso queira ver o WebApp ou Api elas estão disponível para teste no heroku até o dia 27 de Novembro :
+API : 
+```
+
+https://acessible.herokuapp.com/api/localacessibilidade
+
+```
+
+WebApp:
+
+```
+
+https://acessible.herokuapp.com/localacessilidade
+
+```
