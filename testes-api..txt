@@ -1,0 +1,46 @@
+GET :  
+  URL:
+    https://acessible.azurewebsites.net/api/localacessibilidade
+
+POST
+  URL:
+    https://acessible.azurewebsites.net/api/localacessibilidade
+  JSON:
+      {
+			"local": "parque",
+			"logradouro": "rua nove número 74",
+			"cep": "06462-355",
+			"bairro": "Nova",
+			"cidade": "Barueri",
+			"sigla": "AC",
+			"estado": "ACRE",
+			"tipo": "shopping",
+			"tpAcessibilidade": "Acessibilidade"
+		}
+	   
+	   
+PUT
+  URL:
+      https://acessible.azurewebsites.net/api/localacessibilidade/{id}
+	EX:
+	  https://acessible.azurewebsites.net/api/localacessibilidade/1
+	   
+   JSON
+     	{
+			"local": "parque",
+			"logradouro": "rua nove número 74",
+			"cep": "06462-355",
+			"bairro": "TTTT",
+			"cidade": "Barueri",
+			"sigla": "AC",
+			"estado": "ACRE",
+			"tipo": "shopping",
+			"tpAcessibilidade": "Acessibilidade"
+		}
+		
+		
+DELETE: 
+   URL:
+       https://acessible.azurewebsites.net/api/localacessibilidade/{id}
+	EX:
+	  https://acessible.azurewebsites.net/api/localacessibilidade/1

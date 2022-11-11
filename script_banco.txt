@@ -1,0 +1,88 @@
+drop table T_LOCAIS;
+
+drop sequence SQ_LOCAIS;
+
+CREATE TABLE T_LOCAIS (  ID_LOCAL          NUMBER(9,0), 
+                         NM_LOCAL          VARCHAR2(90), 
+                         DS_LOGRADOURO     VARCHAR2(90), 
+                         NR_CEP            VARCHAR2(20), 
+                         NM_BAIRRO         VARCHAR2(90), 
+                         NM_CIDADE         VARCHAR2(80), 
+                         NM_SIGLA_ESTADO   VARCHAR2(2), 
+                         NM_ESTADO         VARCHAR2(30), 
+                         TP_TIPO           VARCHAR2(30), 
+                         TP_ACESSIBILIDADE VARCHAR2(50) );
+   
+CREATE SEQUENCE SQ_LOCAIS
+START WITH 1
+INCREMENT BY 1
+MAXVALUE 99999
+NOCACHE
+NOCYCLE;
+
+
+create or replace trigger tg_locais
+before insert or update or delete on t_locais
+for each row
+begin
+if :new.nm_estado = 'ACRE'  then  
+  :new.nm_sigla_estado :=   'AC';
+elsif :new.nm_estado = 'ALAGOAS'  then  
+  :new.nm_sigla_estado :=   'AL';
+elsif :new.nm_estado = 'AMAPÁ'    then  
+  :new.nm_sigla_estado :=   'AP';
+elsif :new.nm_estado = 'AMAZONAS' then  
+  :new.nm_sigla_estado :=   'AM';
+elsif :new.nm_estado = 'BAHIA'    then  
+  :new.nm_sigla_estado :=   'BA';
+elsif :new.nm_estado = 'CEARÁ'    then  
+  :new.nm_sigla_estado :=   'CE';
+elsif :new.nm_estado = 'DISTRITO FEDERAL'     
+  then  :new.nm_sigla_estado :=   'DF';
+elsif :new.nm_estado = 'ESPÍRITO SANTO' then  
+  :new.nm_sigla_estado :=   'ES';
+elsif :new.nm_estado = 'GOIÁS'    then  
+  :new.nm_sigla_estado :=   'GO';
+elsif :new.nm_estado = 'MARANHÃO' then  
+  :new.nm_sigla_estado :=   'MA';
+elsif :new.nm_estado = 'MATO GROSSO'    then  
+  :new.nm_sigla_estado :=   'MT';
+elsif :new.nm_estado = 'MATO GROSSO DO SUL'   then  
+  :new.nm_sigla_estado :=   'MS';
+elsif :new.nm_estado = 'MINAS GERAIS'   then  
+  :new.nm_sigla_estado :=   'MG';
+elsif :new.nm_estado = 'PARÁ'     then  
+  :new.nm_sigla_estado :=   'PA';
+elsif :new.nm_estado = 'PARAÍBA'  then  
+  :new.nm_sigla_estado :=   'PB';
+elsif :new.nm_estado = 'PARANÁ'   then  
+  :new.nm_sigla_estado :=   'PR';
+elsif :new.nm_estado = 'PERNAMBUCO'     then  
+  :new.nm_sigla_estado :=   'PE';
+elsif :new.nm_estado = 'PIAUÍ'    then  
+  :new.nm_sigla_estado :=   'PI';
+elsif :new.nm_estado = 'RIO DE JANEIRO' then  
+  :new.nm_sigla_estado :=   'RJ';
+elsif :new.nm_estado = 'RIO GRANDE DO NORTE'  then  
+  :new.nm_sigla_estado :=   'RN';
+elsif :new.nm_estado = 'RIO GRANDE DO SUL'    then  
+  :new.nm_sigla_estado :=   'RS';
+elsif :new.nm_estado = 'RONDÔNIA' then  
+  :new.nm_sigla_estado :=   'RO';
+elsif :new.nm_estado = 'RORAIMA'  then  
+  :new.nm_sigla_estado :=   'RR';
+elsif :new.nm_estado = 'SANTA CATARINA' then  
+  :new.nm_sigla_estado :=   'SC';
+elsif :new.nm_estado = 'SÃO PAULO' then  
+  :new.nm_sigla_estado :=   'SP';
+elsif :new.nm_estado = 'SERGIPE'   then 
+   :new.nm_sigla_estado :=   'SE';
+elsif :new.nm_estado = 'TOCANTINS' then  
+  :new.nm_sigla_estado :=   'TO';
+end if;
+ 
+exception
+  when others then
+    raise_application_error(-20000, 'tg_locais: '||sqlerrm);
+end tg_locais;
+/

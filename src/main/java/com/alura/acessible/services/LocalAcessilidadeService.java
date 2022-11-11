@@ -35,9 +35,9 @@ public class LocalAcessilidadeService {
             String valor = x.getTipo();
             if (valor.equals(tipo)){
 //
-                LocalAcessilidade lla = new LocalAcessilidade(   y       ,x.getLocal() ,x.getLogradouro() ,x.getCep() ,x.getBairro()  , x.getCidade(), x.getSigla(),x.getEstado(),x.getTipo());
+                LocalAcessilidade lla = new LocalAcessilidade(   y       ,x.getIdLocal(),x.getLocal() ,x.getLogradouro() ,x.getCep() ,x.getBairro()  , x.getCidade(), x.getSigla(),x.getEstado(),x.getTipo(),x.getTpAcessibilidade());
                 locaiss.add(lla);
-                System.out.println("REMOVIDO "+x.getIdLocal()+" TIPO "+x.getTipo());
+                //System.out.println("REMOVIDO "+x.getIdLocal()+" TIPO "+x.getTipo());
                 y = y +1;
             }
 

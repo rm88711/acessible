@@ -34,21 +34,13 @@ public class LocalAcessilidade {
 
     @Column(name = "TP_TIPO", length = 30)
     private String tipo;
+
+    @Column(name = "TP_ACESSIBILIDADE", length = 30)
+    private String tpAcessibilidade;
     public LocalAcessilidade() {
     }
 
-    public LocalAcessilidade(String local, String logradouro, String cep, String bairro, String cidade, String sigla, String estado, String tipo) {
-        this.local = local;
-        this.logradouro = logradouro;
-        this.cep = cep;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.sigla = sigla;
-        this.estado = estado;
-        this.tipo = tipo;
-    }
-
-    public LocalAcessilidade(Long idLocal, String local, String logradouro, String cep, String bairro, String cidade, String sigla, String estado, String tipo) {
+    public LocalAcessilidade( Long vetor, Long idLocal, String local, String logradouro, String cep, String bairro, String cidade, String sigla, String estado, String tipo, String tpAcessibilidade) {
         this.idLocal = idLocal;
         this.local = local;
         this.logradouro = logradouro;
@@ -58,6 +50,19 @@ public class LocalAcessilidade {
         this.sigla = sigla;
         this.estado = estado;
         this.tipo = tipo;
+        this.tpAcessibilidade = tpAcessibilidade;
+    }
+
+    public LocalAcessilidade(String local, String logradouro, String cep, String bairro, String cidade, String sigla, String estado, String tipo, String tpAcessibilidade) {
+        this.local = local;
+        this.logradouro = logradouro;
+        this.cep = cep;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.sigla = sigla;
+        this.estado = estado;
+        this.tipo = tipo;
+        this.tpAcessibilidade = tpAcessibilidade;
     }
 
     public Long getIdLocal() {
@@ -130,6 +135,14 @@ public class LocalAcessilidade {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public String getTpAcessibilidade() {
+        return tpAcessibilidade;
+    }
+
+    public void setTpAcessibilidade(String tpAcessibilidade) {
+        this.tpAcessibilidade = tpAcessibilidade;
     }
 
     @Override

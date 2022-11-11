@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/localacessilidade")
 public class LocalAcessilidadeWebController {
@@ -38,7 +40,7 @@ public class LocalAcessilidadeWebController {
         String mensagem = (localAcessilidade.getIdLocal() == null) ? "Cadastro Realizado" : "Cadastro alterado";
         services.save(localAcessilidade);
         redirect.addFlashAttribute("message",mensagem);
-        return "redirect:/localacessilidade";
+        return "redirect:localacessilidade";
     }
 
     @GetMapping("delete/{id}")
@@ -50,14 +52,17 @@ public class LocalAcessilidadeWebController {
     @GetMapping("{id}")
     public ModelAndView edit(@PathVariable Long id){
         var localAcessilidade = services.get(id);
-        return new ModelAndView("localacessilidade/form").addObject("local", localAcessilidade.get());
+        return new ModelAndView("localacessilidade/form").addObject("localAcessilidade", localAcessilidade.get());
     }
 
     @GetMapping("listalocais/{tipo}")
     public ModelAndView listaLocal(@PathVariable String tipo){
         System.out.println("LOLOLOLOLO "+ tipo);
         ModelAndView mv =  new ModelAndView("localacessilidade/listalocais");
-
+        List<LocalAcessilidade> locais = services.listTips(tipo);
+        for (LocalAcessilidade x : locais) {
+            System.out.println(x.getIdLocal());
+        }
 
         mv.addObject("localacessilidade",services.listTips(tipo));
 

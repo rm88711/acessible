@@ -24,6 +24,7 @@
     <h1>Lista de Locais:</h1>
     <div th:each="localacessilidade : ${localacessilidade}">
         <div class="listBlock borda letras">
+            <h2 class="hide" th:text="${'ID : '+localacessilidade.idLocal}"></h2>
             <h2 th:text="${'Local : '+localacessilidade.local}"></h2>
             <h2 th:text="*{'Tipo : '+localacessilidade.tipo}"></h2>
             <h2 th:text="*{'Estado : '+localacessilidade.estado}"></h2>
@@ -31,7 +32,15 @@
             <h2 th:text="*{'Bairro : '+localacessilidade.bairro}"></h2>
             <h2 th:text="*{'Endereço : '+localacessilidade.logradouro}"></h2>
             <h2 th:text="*{'Cep : '+localacessilidade.cep}"></h2>
-
+            <h2 th:text="*{'Tipo de Acessibilidade : '+localacessilidade.tpAcessibilidade}"></h2>
+            <div class="actions">
+                <a th:href="${'/localacessilidade/delete/' + localacessilidade.idLocal}">   
+                    <span class="material-icons">delete</span>
+                </a>
+                <a th:href="${'/localacessilidade/' + localacessilidade.idLocal}">   
+                    <span class="material-icons">edit</span>
+                </a>
+            </div>
         </div>
     </div>
 </body>
